@@ -22,9 +22,11 @@ li.a {
 }
 
 li.a:hover {
-    text-decoration: nome;
+    -webkit-text-decoration: nome;
+            text-decoration: nome;
 }
 
 h4{
     color: #009933;
 }
+

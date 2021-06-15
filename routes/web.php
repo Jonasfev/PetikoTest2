@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/newTask', function () {
+    return view('_partials.newTask');
+})->name("newTask");
+
+Route::get('/task', function () {
+    return view('_partials.taskList');
+})->name("taskList");
