@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\pedidosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Rotas
+
 Route::get('/newTask', function () {
     return view('_partials.newTask');
 })->name("newTask");
 
-Route::get('/task', function () {
-    return view('_partials.taskList');
-})->name("taskList");
+Route::get('/', [pedidosController::class, 'show'])->name("taskList");
+
+Route::post('/addTask', [pedidosController::class, 'store'])->name('addTask');
+
+Route::delete('/deleteTask/{id}', [pedidosController::class, 'destroy'])->name("deleteTask");

@@ -1,44 +1,51 @@
 @extends('header')
 
-
+{{-- Formulario de pedido --}}
 @section('content')
     <h4>Novo Pedido</h4>
     <hr>
-    <!--Enviando para o banco de dados -->
-    <form action="tarefa_controller.php?acao=inserir" method="POST">
+    <form action="{{route('addTask')}}" method="POST">
+        @csrf
         <div class="form-row mb-3">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Nome" id="nome" required>
+                <input type="text" class="form-control" placeholder="Nome" name="nome" id="nome" required>
             </div>
             <div class="col">
-                <input type="text" class="form-control" placeholder="Sobrenome" id="sobrenome" required>
-            </div>
-        </div>
-        <div class="form-row mb-3">
-            <div class="col-3">
-                <input type="text" class="form-control" id="cep" placeholder="CEP" maxlength="9"
-                onblur="pesquisacep(this.value);" required>
+                <input type="text" class="form-control" placeholder="Sobrenome" name="sobrenome" id="sobrenome" required>
             </div>
         </div>
 
         <div class="form-row mb-3">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Rua" id="rua" required>
+                <input type="text" class="form-control" id="pedido" name="pedido"  placeholder="Pedido" required>
             </div>
-            <div class="col">
-                <input type="text" class="form-control" placeholder="Bairro" id="bairro" required>
+        </div>
+
+        <div class="form-row mb-3">
+            <div class="col-3">
+                <input type="text" class="form-control" id="cep" name="cep"  placeholder="CEP" maxlength="9"
+                onblur="pesquisacep(this.value, false);" required>
             </div>
         </div>
 
         <div class="form-row mb-3">
             <div class="col">
-                <input type="text" class="form-control" placeholder="Cidade" id="cidade" required>
+                <input type="text" class="form-control" placeholder="Rua" name="rua"  id="rua" required>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Bairro" name="bairro" id="bairro" required>
+            </div>
+        </div>
+
+        <div class="form-row mb-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Cidade" name="cidade" id="cidade" required>
             </div>
             <div class="col-3">
-                <input type="text" class="form-control" placeholder="Estado" id="uf" required>
+                <input type="text" class="form-control" placeholder="Estado" name="estado" id="uf" required>
             </div>
             <div class="col-3">
-                <input type="text" class="form-control" placeholder="Numero" id="numero" required>
+                <input type="text" class="form-control" placeholder="Numero" name="numero" id="numero" required>
             </div>
         </div>
         <button type="submit" class="btn btn-success">Confirmar</button>
