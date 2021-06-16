@@ -1,62 +1,49 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# APP EXEMPLO - Guia de início rápido
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### O QUE É
+Um serviço que integra o XXX como plataforma de YYY.
 
-## About Laravel
+### A QUEM SE DESTINA / OBJETIVO
+Este projeto é mantido sob o mais absoluto sigilo para a Empresa ZZZ. Se você está vendo isso certamente você faz parte do projeto. O objetivo deste documento é facilitar a compreenção do escopo do projeto e de como funciona.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### INSTALAÇÃO LOCAL
+• Instale apache, php e sql ao seu modo (xampp, wamp ou individual), instale o composer e o git;
+• Em seu servidor local baixe o projeto usando `git clone`;
+• Digite: `composer install` para instalar as bibliotecas;
+• Instale `database.sql` em PHPMyAdmin;
+• Agora, para que o envio de e-mail funcione localmente *__habilide a extensão open_openssl e php_sockets__** no php.ini, basta abrir o php.ini e usando `Ctrl+F` busque pelos termos openssl, descomente e depois depois repita os procedimentos para sockets, não se esqueça de reiniciar o apache depois do procedimento;
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### CONVENÇÕES
+Convenções adotadas no ambiente de trabalho para o projeto XXX:
+* Regra para nome de classes e tabelas e colunas em um db: **_primeiroNome_**
+* Para as tabelas devem possuir 's' no final;
+* Todas as `classes` devem ser representadas por um substantivos e não um verbo: Clientes, Contatos, Perfil, Configurações etc;
+* Todos os `metodos` devem ser representadas por um verbo ou frases verbais no infinitivo: salvarStatus, editarPagina, remover etc;
+* Regra para nome de links: **_editar/pagina/sou-um-link_**;
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+... EXEPLO QUE PODE CONTER OUTRAS COISAS COMO ESTRUTURA DE PASTAS E TUTORIAIS ....
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+### BIBLIOTECAS DO PROJETO
+* Usamos o [ Flight framework ](http://flightphp.com/) como framework para rotas, porque tem um desempenho melhor que o Slim Framework ou outros top de linha;
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+* Banco de dados MySql e biblioteca [ Medoo ](http://medoo.in/). O Medoo é de longe a melhor library que ja conheci. A regra de outro é que suas clases não podem de maneira alguma ficarem dentro de classes e ou funções;
 
-## Contributing
+* Sistema de template: o [ Twig ](http://twig.sensiolabs.org) para gerenciar e separar com mais segurança as views, mais abaixo você encontra um tópico falando um pouco mais dessa escolha;
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+* A biblioteca para detectar navegador, sistema operacional e dispositivo: [ PHP Browser Detector ](https://github.com/sinergi/php-browser-detector);
 
-## Code of Conduct
+* Para envio de SMS a biblioteca usada é: [ overtrue - easy-sms ](https://github.com/overtrue/easy-sms), está em Chinês a documentação, mais isso não é um impecilho, copie e cole no google tradutor para entender se tiver algum problema com isso, todo o resto está em inglês.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+* Para pegar o avatar da pessoa caso o email seja google ou esteja no gravatar: [ Avy-get ](https://github.com/12StarsMedia/avy-get), tem mais duas bibliotecas como dependência, mais é super simples de usar. 
 
-## Security Vulnerabilities
+### BANCO DE DADOS
+Medoo é sem dúvidas a ORM mais simples que eu já pude conhecher na vida.
+Você pode estudar a aplicação de login desenvolvida e consultar o guia oficial em: [ medoo.in ](http://medoo.in).
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### SISTEMA DE TEMPLATE
+Escolhi twig pela facilidade de aprendizado, por ter usado bastante com microframeworks também. Se você olhar uma [ folha de resumo ](https://s-media-cache-ak0.pinimg.com/originals/9b/7c/f0/9b7cf0ed69f91af8bdbf3d55ec5f893e.jpg) sobre o twig dá pra tirar muitas dúvidas, contudo, se você já está acostumado com com o Smarty por exemplo pode substituir.
